@@ -9,7 +9,8 @@ class Solution(object):
 	
         for i in range(n):
             discriminant = (points[i][0]*points[(i+1)%n][1] + points[(i+1)%n][0]*points[(i+2)%n][1] + points[(i+2)%n][0]*points[i][1]) - (points[i][0]*points[(i+2)%n][1] + points[(i+1)%n][0]*points[i][1] + points[(i+2)%n][0]*points[(i+1)%n][1])
-            #Use modulus to settle rotation issue 
+            #Use modulus to settle rotation issue
+	    #Thanks to TF
 	    	"""
             signum of z-coordinate of a_1b_2 - a_2b_1
             equivalent to (x[i]y[i+1] + x[i+1]y[i+2] + x[i+2]y[i]) - (x[i]y[i+2] + x[i+1]y[i] + x[i+2]y[i+1])
