@@ -1,3 +1,32 @@
+#第一种
+class Solution(object):
+    def isConvex(self, points):
+        """
+        :type points: List[List[int]]
+        :rtype: bool
+        """
+        points.append(points[0])
+        points.append(points[1])
+        direction = []
+        #问题：存储太多。建议与思考：只保留常数多存储。
+        for i in range(len(points) - 2):
+                        discriminant = (points[i][0]*points[(i+1)%n][1] + points[(i+1)%n][0]*points[(i+2)%n][1] + points[(i+2)%n][0]*points[i][1]) - (points[i][0]*points[(i+2)%n][1] + points[(i+1)%n][0]*points[i][1] + points[(i+2)%n][0]*points[(i+1)%n][1])
+                        """
+                        signum of z-coordinate of a_1b_2 - a_2b_1
+                        equivalent to (x[i]y[i+1] + x[i+1]y[i+2] + x[i+2]y[i]) -    (x[i]y[i+2] + x[i+1]y[i] + x[i+2]y[i+1])
+                        """
+                        
+                        if (discriminant > 0):
+                            signum = 1
+                        elif (discriminant < 0):
+                            signum = -1
+                        else:
+                            signum = 0
+                        direction.append(signum)
+                    is_convex = not((1 in direction) and (-1 in direction))
+                    return is_convex
+
+#第二种
 class Solution(object):
     def isConvex(self, points):
         """
@@ -10,7 +39,7 @@ class Solution(object):
         for i in range(n):
             discriminant = (points[i][0]*points[(i+1)%n][1] + points[(i+1)%n][0]*points[(i+2)%n][1] + points[(i+2)%n][0]*points[i][1]) - (points[i][0]*points[(i+2)%n][1] + points[(i+1)%n][0]*points[i][1] + points[(i+2)%n][0]*points[(i+1)%n][1])
             #Use modulus to settle rotation issue
-	    #Thanks to TF
+            #Thanks to TF
 	    	"""
             signum of z-coordinate of a_1b_2 - a_2b_1
             equivalent to (x[i]y[i+1] + x[i+1]y[i+2] + x[i+2]y[i]) - (x[i]y[i+2] + x[i+1]y[i] + x[i+2]y[i+1])
