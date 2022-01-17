@@ -1,0 +1,26 @@
+class Solution(object):
+    def climbStairs(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        ways = [0,1]
+        for i in range(n):
+            ways.append(ways[-2] + ways[-1])
+        return (ways[-1])
+        
+        #57.7%,66.64%
+        
+-----------
+#还是通项公式暴力
+class Solution(object):
+    def climbStairs(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        x = (((1 + sqrt(5))/2)**(n + 1) - ((1 - sqrt(5))/2)**(n + 1))/sqrt(5)
+        return (int(x))
+        #F_{n + 1}
+        #94.95%,88.68%
+        #但是稳定性一般
