@@ -15,3 +15,21 @@ class Solution(object):
                 else:
                     i+=1
             return False
+
+---------------------
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        if (x < 0):
+            return False
+        else:
+            converted_str = str(x)
+            for i in range(len(converted_str)//2):
+                if (converted_str[i] != converted_str[-(i + 1)]):
+                    return False
+            return True
+            
+            #无显著提高。快过36%，少于40%
