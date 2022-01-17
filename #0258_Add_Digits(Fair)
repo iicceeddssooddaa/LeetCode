@@ -1,0 +1,33 @@
+class Solution(object):
+    def addDigits(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+        if (num == 0):
+            return 0
+        else:
+            return (9 if num%9 == 0 else num%9)
+            #快于89%，少于33%
+            #存储很大？
+
+-----------
+#return 后不加括号
+
+"""
+if else如无必要不用补足
+if 用于特例，则普遍情形回归main flow即可。优先排除特例即可
+
+"""
+
+-----------
+#修正
+class Solution(object):
+    def addDigits(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+        if (num == 0):
+            return 0
+        return (9 if num%9 == 0 else num%9)
