@@ -1,0 +1,25 @@
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        res = reduce(lambda x, y: x ^ y, nums)
+        return (res)
+        #快于89%，少于45%
+        #linear runtime? constant extra space?
+        
+----------------
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        res = reduce(ixor, nums)
+        return (res)
+        #快于89%，少于55%
+        
+--------------
+#核心：按位异或
+#Thanks to TF~~
