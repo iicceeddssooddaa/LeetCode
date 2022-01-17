@@ -1,0 +1,14 @@
+class Solution(object):
+    def missingNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        n = len(nums)
+        x = n*(n + 1)/2 - sum(nums)
+        return (x)
+        #快于89%，少于47%
+        
+        #O(1)空间复杂度，O(n)时间复杂度？
+        #len O(1)
+        #计算
