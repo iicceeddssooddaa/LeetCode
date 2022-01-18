@@ -1,0 +1,12 @@
+class Solution(object):
+    def constructRectangle(self, area):
+        """
+        :type area: int
+        :rtype: List[int]
+        """
+        n = int(sqrt(area)//1)
+        for W in range(n,0,-1):
+            if (area%W == 0):
+                L = area/W
+                return [L,W]
+                #62%,30%
