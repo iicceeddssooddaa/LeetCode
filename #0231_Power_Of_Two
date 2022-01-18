@@ -8,7 +8,21 @@ class Solution(object):
             return False
         else:
             count = bin(n).count("1")
-            return (count == 1)
+            return count == 1
         #思考：本质在于二进制恰好一个1？
         #按位取和为1？
         #速度慢是因为转换二进制？还是出在搜索？
+
+-------------
+class Solution(object):
+    def isPowerOfTwo(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        if (n <= 0):
+            return False
+        else:
+            while (n%2 == 0):
+                n /= 2
+            return n == 1
