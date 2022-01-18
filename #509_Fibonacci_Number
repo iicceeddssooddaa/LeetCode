@@ -1,0 +1,20 @@
+class Solution(object):
+    def fib(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        x = (((1 + sqrt(5))/2)**n - ((1 - sqrt(5))/2)**n)/sqrt(5)
+        return int(x)
+---------------------
+class Solution(object):
+    def fib(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        F = [0,1]
+        for i in range(2,n + 1):
+            F.append(F[i - 1] + F[i - 2])
+        return F[n]
+        #DP明显比硬算float的幂快
