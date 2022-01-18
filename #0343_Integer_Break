@@ -11,3 +11,4 @@ class Solution(object):
                 best = max(best, DP[j] * DP[i-j])
             DP.append(best)
         return DP[n]
+#76%, 63%
