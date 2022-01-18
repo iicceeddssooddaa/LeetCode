@@ -57,11 +57,10 @@ class Solution(object):
         for i,v in Dict1.items():
             if(s.find(i) != -1):
                 num -= 2*v
-            #s.replace(i, '', 1)
         Dict2 = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}
         for i,v in Dict2.items():
-            if(s.find(i) != -1):
-                num += v * s.count(i)
-            #s.replace(i, '')
+            Count = s.count(i)
+            if(Count > 0):
+                num += v * Count
         return num
 ----------------
