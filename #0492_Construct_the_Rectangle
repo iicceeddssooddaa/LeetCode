@@ -4,9 +4,9 @@ class Solution(object):
         :type area: int
         :rtype: List[int]
         """
-        n = int(sqrt(area)//1)
-        for W in range(n,0,-1):
-            if (area%W == 0):
-                L = area/W
-                return [L,W]
-                #62%,30%
+        W = int(sqrt(area)//1)
+        while (area%W !=0):
+            W-=1
+        L = area/W
+        return [L,W]
+        #36%,91%
