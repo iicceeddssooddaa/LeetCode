@@ -1,0 +1,26 @@
+class Solution(object):
+    def computeArea(self, ax1, ay1, ax2, ay2, bx1, by1, bx2, by2):
+        """
+        :type ax1: int
+        :type ay1: int
+        :type ax2: int
+        :type ay2: int
+        :type bx1: int
+        :type by1: int
+        :type bx2: int
+        :type by2: int
+        :rtype: int
+        """
+        area1 = (ax2 - ax1) * (ay2 - ay1)
+        area2 = (bx2 - bx1) * (by2 - by1)
+        area3 = 0
+        if ((ax2 - bx1)*(ax1 - bx2) < 0 and (ay2 - by1)*(ay1 - by2) < 0):
+            area3 = (min(ax2, bx2) - max(ax1, bx1)) * (min(ay2, by2) - max(ay1, by1))
+        area = area1 + area2 - area3
+        return area
+        
+        #判断能简化吗？交叉面积能简化吗？
+        #整体面积呢？
+------------
+area3 = 0 if not ((ax2 - bx1)*(ax1 - bx2) < 0 and (ay2 - by1)*(ay1 - by2) < 0) else (min(ax2, bx2) - max(ax1, bx1)) * (min(ay2, by2) - max(ay1, by1))
+#没有本质区别
