@@ -1,51 +1,4 @@
-class Solution(object):
-    def romanToInt(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        num = 0
-        while (s[0] == "M"):
-            num += 1000
-            s = s[1:]
-        if (s[0:1] == "CM"):
-            num += 900
-            s = s[2:]
-        while (s[0] == "D"):
-            num += 500
-            s = s[1:]
-        if (s[0:1] == "CD"):
-            num += 400
-            s = s[2:]
-        while (s[0] == "C"):
-            num += 100
-            s = s[1:]
-        if (s[0:1] == "XC"):
-            num += 90
-            s = s[2:]
-        while (s[0] == "L"):
-            num += 50
-            s = s[1:]
-        if (s[0:1] == "XL"):
-            num += 40
-            s = s[2:]
-        while (s[0] == "X"):
-            num += 10
-            s = s[1:]
-        if (s[0:1] == "IX"):
-            num += 9
-            s = s[2:]
-        while (s[0] == "V"):
-            num += 5
-            s = s[1:]
-        if (s[0:1] == "IV"):
-            num += 4
-            s = s[2:]
-        while (s[0] == "I"):
-            num += 1
-        return num
-#原地爆炸
----------------
+
 class Solution(object):
     def romanToInt(self, s):
         """
@@ -64,3 +17,5 @@ class Solution(object):
                 num += v * Count
         return num
 ----------------
+#List处置？
+#String源对象不可修改。至多生成新的。
