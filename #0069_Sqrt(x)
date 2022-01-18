@@ -6,3 +6,4 @@ class Solution(object):
         """
         n = int(sqrt(x))
         return n
+#二分搜索？
