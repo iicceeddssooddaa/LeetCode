@@ -12,3 +12,18 @@ class Solution(object):
         return False
 #递归
 #98%，77%
+-----------------------
+class Solution(object):
+    def checkPowersOfThree(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        x = n
+        for i in range(16,-1,-1):
+            if (x//(3**i) != 2):
+                x%=3**i
+            else:
+                return False
+        return True
+        #98%,94%
