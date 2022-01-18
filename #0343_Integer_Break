@@ -1,0 +1,13 @@
+class Solution(object):
+    def integerBreak(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        DP = [0,0,1,2,4,6,9]
+        for i in range(7,(n+1)):
+            best = max(DP[i-1], 2 * DP[i-2], 3 * DP[i-3])
+            for j in range(4,(i + 1)//2):
+                best = max(best, DP[j] * DP[i-j])
+            DP.append(best)
+        return DP[n]
