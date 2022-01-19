@@ -18,3 +18,9 @@ class Solution(object):
             F.append(F[i - 1] + F[i - 2])
         return F[n]
         #DP明显比硬算float的幂快
+--------------
+        F = [0,1,1]
+        for i in range(3,n + 1):
+            F[i%3] = F[(i - 1)%3] + F[(i - 2)%3]
+        return F[n%3]
+        #省存储的写法
