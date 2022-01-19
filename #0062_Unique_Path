@@ -1,0 +1,18 @@
+class Solution(object):
+    def uniquePaths(self, m, n):
+        """
+        :type m: int
+        :type n: int
+        :rtype: int
+        """
+        List = []
+        for i in range(m):
+            List.append([1])
+        for j in range(1,n):
+            List[0].append(1)
+        for i in range(1,m):
+            for j in range(1,n):
+                List[i].append(List[i - 1][j] + List[i][j - 1])
+        return List[m - 1][n - 1]
+    #直接生成表格
+    #可以每次只保留最近两行
