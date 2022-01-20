@@ -14,5 +14,20 @@ class Solution(object):
         return proj_area
         #表现一般
 ---------------
-
-
+class Solution(object):
+    def projectionArea(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        n = len(grid)
+        proj_area = 0
+        for i in range(n):
+            front_view = max(grid[i])
+            right = []
+            for j in range(n):
+                right.append(grid[j][i])
+                proj_area += bool(grid[i][j])
+            proj_area += max(right) + front_view
+        return proj_area
+#几乎等价
