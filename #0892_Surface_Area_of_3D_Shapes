@@ -44,9 +44,7 @@ class Solution(object):
         for i in range(n + 1):
             for j in range(n + 1):
                 top_bottom = 2 if grid[i][j] > 0 else 0
-                #back = max(grid[i][j] - grid[i - 1][j], 0)
                 front = abs(grid[i][j] - grid[i + 1][j])
-                #left = max(grid[i][j] - grid[i][j - 1], 0)
                 right = abs(grid[i][j] - grid[i][j + 1])
                 surface_area += top_bottom + front + right
         return surface_area
