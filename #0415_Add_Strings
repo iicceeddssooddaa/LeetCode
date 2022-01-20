@@ -1,0 +1,21 @@
+class Solution(object):
+    def addStrings(self, num1, num2):
+        """
+        :type num1: str
+        :type num2: str
+        :rtype: str
+        """
+        length1 = len(num1)
+        length2 = len(num2)
+        n1 = 0
+        n2 = 0
+        for i in range(length1):
+            n1 *= 10
+            n1 += int(num1[i])
+        for j in range(length2):
+            n2 *= 10
+            n2 += int(num2[j])
+        Sum = n1 + n2
+        String = str(Sum)
+        return String
+        #和乘相比，加显得有点慢
