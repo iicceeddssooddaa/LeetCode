@@ -1,0 +1,14 @@
+class Solution(object):
+    def maxCount(self, m, n, ops):
+        """
+        :type m: int
+        :type n: int
+        :type ops: List[List[int]]
+        :rtype: int
+        """
+        num = len(ops)
+        for i in range(num):
+            m = min(m, ops[i][0])
+            n = min(n, ops[i][1])
+        return m*n
+        #速度存储表现一般
