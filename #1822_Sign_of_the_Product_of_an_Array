@@ -1,0 +1,13 @@
+class Solution(object):
+    def arraySign(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if 0 in nums:
+            return 0
+        count = True
+        for i in range(len(nums)):
+            count ^= (nums[i] < 0)
+        return 1 if count else -1
+        #速度和存储也还是不算好
