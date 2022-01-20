@@ -1,0 +1,21 @@
+class Solution(object):
+    def validSquare(self, p1, p2, p3, p4):
+        """
+        :type p1: List[int]
+        :type p2: List[int]
+        :type p3: List[int]
+        :type p4: List[int]
+        :rtype: bool
+        """
+        sq1 = (p1[0] - p2[0])**2 + (p1[1] - p2[1])**2
+        sq2 = (p1[0] - p3[0])**2 + (p1[1] - p3[1])**2
+        sq3 = (p1[0] - p4[0])**2 + (p1[1] - p4[1])**2
+        sq4 = (p2[0] - p3[0])**2 + (p2[1] - p3[1])**2
+        sq5 = (p2[0] - p4[0])**2 + (p2[1] - p4[1])**2
+        sq6 = (p3[0] - p4[0])**2 + (p3[1] - p4[1])**2
+        List = [sq1, sq2, sq3, sq4, sq5, sq6]
+        sidesq = min(List)
+        if List.count(sidesq) != 4 or max(List) != 2*sidesq:
+            return False
+        return True
+        #判断菱形加对角线
