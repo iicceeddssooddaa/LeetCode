@@ -1,31 +1,4 @@
 #思路：周围加一圈0，顶面与底面各贡献2，从而用boolean返回相乘即可。侧面贡献每组流转一次，用邻近的差绝对值来搞定。
------------
-class Solution(object):
-    def surfaceArea(self, grid):
-        """
-        :type grid: List[List[int]]
-        :rtype: int
-        """
-        surface_area = 0
-        row_list = []
-        n = len(grid)
-        for k in range(n+2):
-            row_list.append(0)
-            if (k < n):
-                grid[k].append(0)
-                grid[k].insert(0, 0)
-        grid.append(row_list)
-        grid.insert(0, row_list)
-        for i in range(1, n + 1):
-            for j in range(1, n + 1):
-                top_bottom = 2 if grid[i][j] > 0 else 0
-                back = max(grid[i][j] - grid[i - 1][j], 0)
-                front = max(grid[i][j] - grid[i + 1][j], 0)
-                left = max(grid[i][j] - grid[i][j - 1], 0)
-                right = max(grid[i][j] - grid[i][j + 1], 0)
-                surface_area += top_bottom + back + front + left + right
-        return surface_area
-#侧面积应该用差的绝对值来算
 ------
 class Solution(object):
     def surfaceArea(self, grid):
@@ -80,3 +53,32 @@ class Solution(object):
         return surface_area
         #反正速度随便95%+
         #如果把front和right直接代入，存储显著减少，但速度显著降低。值得平衡。
+----------
+#换写法练习，没有显著提高
+class Solution(object):
+    def surfaceArea(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        surface_area = 0
+        row_list = []
+        n = len(grid)
+        for k in range(n+2):
+            row_list.append(0)
+            if (k < n):
+                grid[k].append(0)
+                grid[k].insert(0, 0)
+        grid.append(row_list)
+        grid.insert(0, row_list)
+        
+        for i in range(n + 1):
+            bw_rows = sum([abs(grid[i][j] - grid[i + 1][j]) for j in range(n + 1)])
+            within_rows = sum(abs(grid[i][j] - grid[i][j + 1]) for j in range(n + 1))
+            top_bottom = sum(bool(grid[i][j]) for j in range(n + 1))
+            #for j in range(n + 1):
+            #    front = abs(grid[i][j] - grid[i + 1][j])
+            #    right = abs(grid[i][j] - grid[i][j + 1])
+            #    surface_area += 2 * bool(grid[i][j]) + front + right
+            surface_area += bw_rows + within_rows + 2 * top_bottom
+        return surface_area
