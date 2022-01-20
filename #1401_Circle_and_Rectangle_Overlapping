@@ -1,0 +1,28 @@
+class Solution(object):
+    def checkOverlap(self, radius, xCenter, yCenter, x1, y1, x2, y2):
+        """
+        :type radius: int
+        :type xCenter: int
+        :type yCenter: int
+        :type x1: int
+        :type y1: int
+        :type x2: int
+        :type y2: int
+        :rtype: bool
+        """
+        left = xCenter < x1
+        right = xCenter > x2
+        below = yCenter < y1
+        above = yCenter > y2
+        if not (left or right or above or below):
+            return True
+        xdist = min(abs(xCenter - x1), abs(xCenter - x2))
+        ydist = min(abs(yCenter - y1), abs(yCenter - y2))
+        if (left or right) and (above or below):
+            dis_sq = xdist**2 + ydist**2
+            return radius**2 >= dis_sq
+        if left or right:
+            return radius >= xdist
+        if above or below:
+            return radius >= ydist
+            #判断复杂了？感觉有点慢
