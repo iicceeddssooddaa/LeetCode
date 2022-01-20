@@ -1,0 +1,21 @@
+class Solution(object):
+    def addToArrayForm(self, num, k):
+        """
+        :type num: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        length = len(num)
+        n = 0
+        for i in range(length):
+            n *= 10
+            n += int(num[i])
+        Sum = n + k
+        List = []
+        while (Sum != 0):
+            List.insert(0,Sum%10)
+            Sum //=10
+        return List
+        #好在一次成功
+        #坏在速度太慢
+        #思考：是不是应该直接把k磨成list然后逐位运算？
