@@ -38,4 +38,4 @@ class Solution(object):
         if n == 1:
             return True
         while n%2 == 0:
-            return self.isPowerOfTwo(n/2)
+            return self.isPowerOfTwo(n>>1)
