@@ -1,0 +1,22 @@
+class Solution(object):
+    def getMaximumGenerated(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n == 0:
+            return 0
+        if n == 1:
+            return 1
+        List = [0, 1]
+        i = 2
+        while (i <= n):
+            if i%2 == 0:
+                List.append(List[i/2])
+            else:
+                #left = (i - 1)/2
+                #right = (i + 1)/2
+                value = List[(i + 1)/2] + List[(i - 1)/2]
+                List.append(value)
+            i += 1
+        return max(List)
