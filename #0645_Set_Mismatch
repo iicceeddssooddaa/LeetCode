@@ -1,0 +1,18 @@
+class Solution(object):
+    def findErrorNums(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        List = [0,0]
+        for i in range(len(nums)):
+            if nums[abs(nums[i]) - 1] > 0:
+                nums[abs(nums[i]) - 1] *= -1
+            else:
+                List[0] = abs(nums[i])
+        i = 0
+        while (nums[i] < 0):
+            i += 1
+        List[1] = i+1
+        return List
+        #绝对值标记法
