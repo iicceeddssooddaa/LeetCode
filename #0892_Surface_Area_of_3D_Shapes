@@ -1,3 +1,5 @@
+#思路：周围加一圈0，顶面与底面各贡献2，从而用boolean返回相乘即可。侧面贡献每组流转一次，用邻近的差绝对值来搞定。
+-----------
 class Solution(object):
     def surfaceArea(self, grid):
         """
@@ -49,5 +51,32 @@ class Solution(object):
                 surface_area += top_bottom + front + right
         return surface_area
         #好了一些
-        #思考：既然如此，少一层嵌套？
+        #思考：既然如此，少一点负担？
 -------------
+class Solution(object):
+    def surfaceArea(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        surface_area = 0
+        
+        row_list = []
+        n = len(grid)
+        for k in range(n+2):
+            row_list.append(0)
+            if (k < n):
+                grid[k].append(0)
+                grid[k].insert(0, 0)
+        grid.append(row_list)
+        grid.insert(0, row_list)
+        #一步解决俩问题似乎不太行
+        
+        for i in range(n + 1):
+            for j in range(n + 1):
+                front = abs(grid[i][j] - grid[i + 1][j])
+                right = abs(grid[i][j] - grid[i][j + 1])
+                surface_area += 2 * bool(grid[i][j]) + front + right
+        return surface_area
+        #反正速度随便95%+
+        #如果把front和right直接代入，存储减少，但速度显著降低。还是得分开。
