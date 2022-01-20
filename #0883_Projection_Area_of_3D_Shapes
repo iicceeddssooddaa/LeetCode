@@ -1,0 +1,18 @@
+class Solution(object):
+    def projectionArea(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        n = len(grid)
+        proj_area = 0
+        for i in range(n):
+            top_view = sum(bool(grid[i][j]) for j in range(n))
+            right_view = max([grid[j][i] for j in range(n)])
+            front_view = max(grid[i])
+            proj_area += top_view + right_view + front_view
+        return proj_area
+        #表现一般
+---------------
+
+
