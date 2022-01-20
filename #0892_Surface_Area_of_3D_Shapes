@@ -79,4 +79,4 @@ class Solution(object):
                 surface_area += 2 * bool(grid[i][j]) + front + right
         return surface_area
         #反正速度随便95%+
-        #如果把front和right直接代入，存储减少，但速度显著降低。还是得分开。
+        #如果把front和right直接代入，存储显著减少，但速度显著降低。值得平衡。
