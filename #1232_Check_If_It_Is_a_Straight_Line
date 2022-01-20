@@ -14,3 +14,16 @@ class Solution(object):
         return True
 #速度存储都不太好
 ------
+class Solution(object):
+    def checkStraightLine(self, coordinates):
+        """
+        :type coordinates: List[List[int]]
+        :rtype: bool
+        """
+        n = len(coordinates)
+        for i in range(2, n):
+            discriminant = (coordinates[0][0] * coordinates[1][1] - coordinates[1][0] * coordinates[0][1]) + (coordinates[1][0] - coordinates[0][0]) * coordinates[i][1] + (coordinates[0][1] - coordinates[1][1]) * coordinates[i][0]
+            if (discriminant != 0):
+                return False
+        return True
+#硬写叉乘略显快。参考convex polygon一题
