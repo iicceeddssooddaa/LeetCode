@@ -1,0 +1,16 @@
+class Solution(object):
+    def containsNearbyDuplicate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: bool
+        """
+        Dict = {}
+        for i in range(len(nums)):
+            if Dict.has_key(nums[i]) and i - int(Dict[nums[i]]) <= k:
+                return True 
+            else:
+                Dict[nums[i]] = i
+        return False
+        #字典记位置，太远就重新定义（没有也一样）
+        #速度，还是速度
