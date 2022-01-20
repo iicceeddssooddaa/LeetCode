@@ -1,0 +1,19 @@
+class Solution(object):
+    def complexNumberMultiply(self, num1, num2):
+        """
+        :type num1: str
+        :type num2: str
+        :rtype: str
+        """
+        complex1 = num1.split("+")
+        a0 = int(complex1[0])
+        complex11 = complex1[1].split("i")
+        b0 = int(complex11[0])
+        complex2 = num2.split("+")
+        a1 = int(complex2[0])
+        complex21 = complex2[1].split("i")
+        b1 = int(complex21[0])
+        c0 = a0*a1 - b0*b1
+        c1 = a0*b1 + a1*b0
+        String = "".join([str(c0), "+", str(c1),"i"])
+        return String
