@@ -8,3 +8,5 @@ class Solution(object):
         return True if discriminant !=0 else False
         #和Convex Polygon，Check if is a striaght line一样
         #叉乘贼快
+-----------
+#应该考虑模块化    
