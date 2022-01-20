@@ -1,0 +1,14 @@
+class Solution(object):
+    def dayOfYear(self, date):
+        """
+        :type date: str
+        :rtype: int
+        """
+        year = int(date[0:4])
+        month = int(date[5:7])
+        day = int(date[8:10])
+        leap_year = (year > 1900) and (year%4 == 0)
+        Dict = {1:0, 2:31, 3:59, 4:90, 5:120, 6:151, 7:181, 8:212, 9:243, 10:273, 11:304, 12:334}
+        num = day + Dict[month] + (leap_year if month > 2 else 0)
+        return num
+        #速度有待提升
