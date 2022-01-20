@@ -21,8 +21,11 @@ class Solution(object):
         if (left or right) and (above or below):
             dis_sq = xdist**2 + ydist**2
             return radius**2 >= dis_sq
+        return (radius >= xdist) if left or right else radius >= ydist
+        """
         if left or right:
             return radius >= xdist
         if above or below:
             return radius >= ydist
+        """
             #判断复杂了？感觉有点慢
