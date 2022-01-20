@@ -13,3 +13,5 @@ class Solution(object):
         #并不是每个case都这模样
         
         #result = "{0:b}".format(int(a,2) + int(b,2))
+---------------
+https://stackoverflow.com/questions/339007/how-to-pad-zeroes-to-a-string
