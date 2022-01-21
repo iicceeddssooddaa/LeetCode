@@ -1,0 +1,23 @@
+class Solution(object):
+    def numEquivDominoPairs(self, dominoes):
+        """
+        :type dominoes: List[List[int]]
+        :rtype: int
+        """
+        Dict = {}
+        n = len(dominoes)
+        for i in range(n):
+            if dominoes[i][0] > dominoes[i][1]:
+                cache = tuple([dominoes[i][1],dominoes[i][0]])
+            else:
+                cache = tuple(dominoes[i])
+            if cache not in Dict:
+                Dict[cache] = 1
+            else:
+                Dict[cache] += 1
+        count = 0
+        for key,value in Dict.items():
+            if value >= 2:
+                count += value*(value - 1)/2
+        return count
+        #有待优化
