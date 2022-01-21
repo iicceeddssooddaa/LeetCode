@@ -1,0 +1,21 @@
+class Solution(object):
+    def twoSumLessThanK(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        nums.sort()
+        i, j = 0, len(nums) - 1
+        List = []
+        while i < j:
+            while nums[i] + nums[j] > k:
+                j -= 1
+            while nums[i] + nums[j] < k:
+                i += 1
+            List.append(nums[i - 1] + nums[j])
+        if len(List) == 0:
+            return -1
+        else:
+            return max(List)
+#12行报错，list index out of range           
