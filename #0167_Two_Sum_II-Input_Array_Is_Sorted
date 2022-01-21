@@ -1,0 +1,15 @@
+class Solution(object):
+    def twoSum(self, numbers, target):
+        """
+        :type numbers: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        Dict = {}
+        for pos, value in enumerate(numbers):
+            if value in Dict:
+                return [Dict[value] + 1, pos + 1]
+            dual = target - value
+            Dict[dual] = pos
+            #排过序没用上
+            #双指针？
