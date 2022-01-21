@@ -1,0 +1,21 @@
+class Solution(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        List = []
+        List[:] = s
+        Dict = {}
+        for i in range(len(List)):
+            if List[i] not in Dict:
+                Dict[List[i]] = 1
+            else:
+                Dict[List[i]] += 1
+        pos = 0
+        while pos < len(List):
+            if Dict[List[pos]] == 1:
+                return pos
+            else:
+                pos += 1
+        return -1
