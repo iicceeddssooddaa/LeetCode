@@ -1,0 +1,15 @@
+class Solution(object):
+    def repeatedNTimes(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        n = len(nums)
+        Dict = {}
+        for i in range(n):
+            if nums[i] not in Dict:
+                Dict[nums[i]] = 1
+            else:
+                return nums[i]
+                
+----------
