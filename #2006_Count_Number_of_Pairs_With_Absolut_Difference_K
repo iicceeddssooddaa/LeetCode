@@ -1,0 +1,21 @@
+class Solution(object):
+    def countKDifference(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        count = 0
+        Dict = {}
+        while (len(nums)):
+            benchmark = nums[0]
+            nums.pop(0)
+            if benchmark not in Dict:
+                Dict[benchmark] = 1
+            else:
+                Dict[benchmark] += 1
+        for val in Dict.keys():
+            if (int(val) + k) in Dict.keys():
+                count += Dict[val] * Dict[int(val) + k]
+        return count
+        #还行还行
