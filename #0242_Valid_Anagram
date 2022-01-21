@@ -1,0 +1,31 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        if len(s) != len(t):
+            return False
+        n = len(s)
+        Dict_s, Dict_t = {}, {}
+        for i in range(n):
+            if s[i] not in Dict_s:
+                Dict_s[s[i]] = 1
+            else:
+                Dict_s[s[i]] += 1
+            if t[i] not in Dict_t:
+                Dict_t[t[i]] = 1
+            else:
+                Dict_t[t[i]] += 1
+        if len(Dict_s) != len(Dict_t):
+            return False
+        for key,value in Dict_s.items():
+            if key not in Dict_t:
+                return False
+            if value != Dict_t[key]:
+                return False
+        return True
+  -----
+  #用一部字典搞定呗
+  
