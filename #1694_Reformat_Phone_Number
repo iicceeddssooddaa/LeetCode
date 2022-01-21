@@ -1,0 +1,17 @@
+class Solution(object):
+    def reformatNumber(self, number):
+        """
+        :type number: str
+        :rtype: str
+        """
+        String = number.replace(' ','').replace('-','')
+        n = len(String)
+        if n <= 3:
+            return String
+        if n == 4:
+            num_string = ''.join([String[0:2],"-",String[2:4]])
+            return num_string
+        if n > 4:
+            last_string = self.reformatNumber(String[3:n + 1])
+            num_string = ''.join([String[0:3],"-",last_string])
+            return num_string
