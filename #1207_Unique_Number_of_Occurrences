@@ -1,0 +1,14 @@
+class Solution(object):
+    def uniqueOccurrences(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: bool
+        """
+        Dict = {}
+        for i in range(len(arr)):
+            if arr[i] not in Dict:
+                Dict[arr[i]] = 1
+            else:
+                Dict[arr[i]] += 1
+        set1 = set(Dict.values())
+        return len(set1) == len(Dict)
