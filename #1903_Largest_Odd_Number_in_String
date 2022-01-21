@@ -1,0 +1,16 @@
+class Solution(object):
+    def largestOddNumber(self, num):
+        """
+        :type num: str
+        :rtype: str
+        """
+        n = len(num)
+        List = []
+        List[:] = num
+        while (len(List) > 0):
+                if int(List[-1])%2 == 0:
+                    del List[-1]
+                else:
+                    String = "".join(List)
+                    return String
+        return ''
