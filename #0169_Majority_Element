@@ -1,0 +1,20 @@
+class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        Dict = {}
+        n = len(nums)
+        for i in range(n):
+            if nums[i] not in Dict:
+                Dict[nums[i]] = 1
+            else:
+                Dict[nums[i]] += 1
+        majority = 0
+        count = 0
+        for key,value in Dict.items():
+            if value > count:
+                majority = key
+                count = value
+        return majority
