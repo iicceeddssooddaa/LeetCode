@@ -1,0 +1,28 @@
+class Solution(object):
+    def canPermutePalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        Dict1 = {}
+        n = len(s)
+        for i in range(n):
+            if s[i] not in Dict1:
+                Dict1[s[i]] = 1
+            else:
+                Dict1[s[i]] += 1
+        List = []
+        List[:] = Dict1.values()
+        t = len(List)
+        count = 0
+        for i in range(t):
+            if List[i] %2 == 1:
+                count += 1
+            if count >= 2:
+                return False
+        return True
+
+        
+        
+            
+        
