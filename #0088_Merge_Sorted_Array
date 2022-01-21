@@ -1,0 +1,28 @@
+class Solution(object):
+    def merge(self, nums1, m, nums2, n):
+        """
+        :type nums1: List[int]
+        :type m: int
+        :type nums2: List[int]
+        :type n: int
+        :rtype: None Do not return anything, modify nums1 in-place instead.
+        """
+        print m
+        if m == 0:
+            return nums2
+        else:
+            i, j = 0, 0
+            while (j < n and m >0):
+                    if nums1[i] < nums2[j] and nums1[i] <= nums1[i + 1]:
+                        i += 1
+                    elif nums1[i] >= nums2[j] and nums1[i] <= nums1[i + 1]:
+                        nums1.insert(i,nums2[j])
+                        del nums1[-1]
+                        j += 1
+                        i += 1
+                    else:
+                        del nums1[i+1:]
+                        nums1.extend(nums2[j:])
+                        j = n
+            return nums1
+      
