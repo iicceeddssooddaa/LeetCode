@@ -1,0 +1,16 @@
+class Solution(object):
+    def superPow(self, a, b):
+        """
+        :type a: int
+        :type b: List[int]
+        :rtype: int
+        """
+        #1337 = 7 \times 191
+        a %= 1337
+        super_power = 1
+        t = len(b)
+        for j in range(t):
+            super_power **= 10
+            super_power *= (a**b[j])
+            super_power %= 1337
+        return super_power
