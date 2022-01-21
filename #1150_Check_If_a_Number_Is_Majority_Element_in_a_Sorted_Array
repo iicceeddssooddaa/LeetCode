@@ -1,0 +1,16 @@
+class Solution(object):
+    def isMajorityElement(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: bool
+        """
+        if len(nums) == 1:
+            return False
+        i, j = 0, len(nums) - 1
+        while nums[i] < target and i < j:
+            i += 1
+        while nums[j] > target and i < j:
+            j -= 1
+        count = j - i + 1
+        return 2*count > len(nums)
