@@ -1,0 +1,26 @@
+class Solution(object):
+    def uncommonFromSentences(self, s1, s2):
+        """
+        :type s1: str
+        :type s2: str
+        :rtype: List[str]
+        """
+        List1 = s1.split(" ")
+        List2 = s2.split(" ")
+        Dict = {}
+        List = []
+        for i in range(len(List1)):
+            if List1[i] not in Dict:
+                Dict[List1[i]] = 1
+            else:
+                Dict[List1[i]] = -1
+        for i in range(len(List2)):
+            if List2[i] in Dict:
+                if Dict[List2[i]] == 1:
+                    Dict[List2[i]] = 2
+            else:
+                Dict[List2[i]] = 1
+        for key, value in Dict.items():
+            if value == 1:
+                List.append(key)
+        return List
