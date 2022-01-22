@@ -1,0 +1,22 @@
+class Solution(object):
+    def kthDistinct(self, arr, k):
+        """
+        :type arr: List[str]
+        :type k: int
+        :rtype: str
+        """
+        Dict = {}
+        List = []
+        for i in range(len(arr)):
+            if arr[i] not in Dict:
+                Dict[arr[i]] = 1
+                List.append(arr[i])
+            else:
+                Dict[arr[i]] += 1
+        List_distinct = []
+        for i in range(len(List)):
+            if Dict[List[i]] == 1:
+                List_distinct.append(List[i])
+        if len(List_distinct) < k:
+            return ""
+        return List_distinct[k-1]
