@@ -1,0 +1,22 @@
+class Solution(object):
+    def countWords(self, words1, words2):
+        """
+        :type words1: List[str]
+        :type words2: List[str]
+        :rtype: int
+        """
+        Dict = {}
+        List = []
+        for i in range(len(words1)):
+            if words1[i] not in Dict:
+                Dict[words1[i]] = 1
+            else:
+                Dict[words1[i]] = -1
+        for i in range(len(words2)):
+            if words2[i] in Dict:
+                if Dict[words2[i]] > 0:
+                    Dict[words2[i]] += 1
+        for key,value in Dict.items():
+            if value == 2:
+                List.append(key)
+        return len(List)
