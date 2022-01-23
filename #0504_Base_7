@@ -1,0 +1,18 @@
+class Solution(object):
+    def convertToBase7(self, num):
+        """
+        :type num: int
+        :rtype: str
+        """
+        if num == 0:
+            return "0"
+        sign = 1 if num > 0 else -1
+        num *= sign
+        List = []
+        while num > 0:
+            List.insert(0, str(num%7))
+            num //= 7
+        String = "".join(List)
+        if sign == -1:
+            return "-"+String
+        return String
