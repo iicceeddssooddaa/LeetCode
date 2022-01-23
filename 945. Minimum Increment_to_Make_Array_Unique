@@ -1,0 +1,17 @@
+class Solution(object):
+    def minIncrementForUnique(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if len(nums) == 1:
+            return 0
+        nums.sort()
+        inc = 0
+        for i in range(len(nums) - 1):
+            if nums[i] >= nums[i + 1]:
+                diff = nums[i] + 1 - nums[i + 1]
+                nums[i + 1] += diff
+                inc += diff
+        return inc
+        #直接修改序列，当心反复引用计算出错。用一个缓存。
