@@ -1,0 +1,28 @@
+class Solution(object):
+    def countCharacters(self, words, chars):
+        """
+        :type words: List[str]
+        :type chars: str
+        :rtype: int
+        """
+        Dict = {}
+        for i in range(len(chars)):
+            if chars[i] not in Dict:
+                Dict[chars[i]] = 1
+            else:
+                Dict[chars[i]] += 1
+        count = 0
+        for i in range(len(words)):
+            Dict_cache = Dict.copy()
+            is_substr = True
+            j = 0
+            while is_substr and j < len(words[i]):
+                if words[i][j] not in Dict:
+                    is_substr = False
+                else:
+                    Dict_cache[words[i][j]] -= 1
+                    if Dict_cache[words[i][j]] < 0:
+                        is_substr = False
+                j += 1
+            count += is_substr * len(words[i])
+        return count
