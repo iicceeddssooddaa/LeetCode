@@ -1,0 +1,18 @@
+class Solution(object):
+    def getRow(self, rowIndex):
+        """
+        :type rowIndex: int
+        :rtype: List[int]
+        """
+        if rowIndex == 0:
+            return [1]
+        if rowIndex == 1:
+            return [1,1]
+        List = [1]
+        for i in range(rowIndex):
+            cache_list = [0]
+            cache_list[1:] = List
+            List.append(0)
+            for j in range(len(List)):
+                List[j] += cache_list[j]
+        return List
