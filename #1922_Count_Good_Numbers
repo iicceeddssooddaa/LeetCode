@@ -1,0 +1,13 @@
+class Solution(object):
+    def countGoodNumbers(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        # count = 5^{\left\lceil \dfrac{n}{2}\right\rceil} \times 4^{\left\lfloor \dfrac{n}{2}\right\rfloor}
+        even = (5 ** ((n + 1) // 2)) % (10**9 + 7)
+        odd = (1 << (2*(n//2))) % (10**9 + 7)
+        count = even * odd % (10**9 + 7) 
+        return count
+        #指数跑不过
+        #怎么快速运算？
