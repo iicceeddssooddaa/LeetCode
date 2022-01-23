@@ -1,0 +1,28 @@
+class Solution(object):
+    def areNumbersAscending(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        num_list = []
+        for t in s.split():
+            try:
+                num_list.append(int(t))
+            except ValueError:
+                pass
+        ascending = True
+        i = 0
+        while i < len(num_list) - 1 and ascending:
+            if num_list[i] >= num_list[i + 1]:
+                ascending = False
+            i += 1
+        return ascending
+        
+        """
+        for t in s.split():
+            try:
+                num_list.append(int(t))
+            except ValueError:
+                pass
+        """
+        #如何从字符串中获取数字
