@@ -11,3 +11,4 @@ class Solution(object):
         return count
         #指数跑不过
         #怎么快速运算？
+#https://leetcode.com/problems/count-good-numbers/discuss/1566351/Easy-c++-Explanation-greater-Number-Theory
