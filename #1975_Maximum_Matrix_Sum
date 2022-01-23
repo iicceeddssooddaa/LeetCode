@@ -5,15 +5,11 @@ class Solution(object):
         :rtype: int
         """
         n = len(matrix)
-        #zero_exist = False
         min_abs = "inf"
         neg_count = 0
         sum_abs = 0
         for i in range(n):
             for j in range(n):
-                #if matrix[i][j] == 0 and not zero_exist:
-                #    zero_exist = True
-                #    min_abs = 0
                 if matrix[i][j] < 0:
                     neg_count += 1
                     sum_abs -= matrix[i][j]
@@ -26,3 +22,4 @@ class Solution(object):
         else:
             sum_abs -= 2 * min_abs
             return sum_abs
+#存储真少，运算真慢
