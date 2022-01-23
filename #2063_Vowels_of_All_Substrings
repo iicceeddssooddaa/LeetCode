@@ -1,0 +1,13 @@
+class Solution(object):
+    def countVowels(self, word):
+        """
+        :type word: str
+        :rtype: int
+        """
+        n = len(word)
+        vowel = {"a", "e", "i", "o", "u"}
+        count = 0
+        for i in range(n):
+            if word[i] in vowel:
+                count += (n - i) * (i + 1)
+        return count
