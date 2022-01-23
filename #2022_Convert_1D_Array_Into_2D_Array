@@ -1,0 +1,17 @@
+class Solution(object):
+    def construct2DArray(self, original, m, n):
+        """
+        :type original: List[int]
+        :type m: int
+        :type n: int
+        :rtype: List[List[int]]
+        """
+        if len(original) != m*n:
+            return []
+        target = []
+        for i in range(m):
+            list_cache = []
+            for j in range(n):
+                list_cache.append(original[i*n + j])
+            target.append(list_cache)
+        return target
