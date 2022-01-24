@@ -1,0 +1,24 @@
+class Solution(object):
+    def capitalizeTitle(self, title):
+        """
+        :type title: str
+        :rtype: str
+        """
+        List = title.split(" ")
+        new_list = []
+        for i in range(len(List)):
+            cache_list = []
+            n = len(List[i])
+            short = n < 3
+            if short:
+                for j in range(n):
+                    cache_list.append(lower(List[i][j]))
+            else:
+                cache_list.append(upper(List[i][0]))
+                for j in range(1,n):
+                    cache_list.append(lower(List[i][j]))
+            String = "".join(cache_list)
+            new_list.append(String)
+        output = " ".join(new_list)
+        return output
+                
