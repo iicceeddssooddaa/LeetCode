@@ -1,0 +1,23 @@
+class Solution(object):
+    def sortedSquares(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        left = 0
+        right = len(nums) - 1
+        List = []
+        sq_left = nums[left]**2
+        sq_right = nums[right]**2
+        while left < right:
+            if sq_left < sq_right:
+                List.insert(0, sq_right)
+                right -= 1
+                sq_right = nums[right]**2
+            else:
+                List.insert(0, sq_left)
+                left += 1
+                sq_left = nums[left]**2
+        if left == right:
+            List.insert(0,nums[left]**2)
+        return List
