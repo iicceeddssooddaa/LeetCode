@@ -7,22 +7,18 @@ class Solution(object):
         :type n: int
         :rtype: None Do not return anything, modify nums1 in-place instead.
         """
-        print m
         if m == 0:
-            return nums2
-        else:
-            i, j = 0, 0
-            while (j < n and m >0):
-                    if nums1[i] < nums2[j] and nums1[i] <= nums1[i + 1]:
-                        i += 1
-                    elif nums1[i] >= nums2[j] and nums1[i] <= nums1[i + 1]:
-                        nums1.insert(i,nums2[j])
-                        del nums1[-1]
-                        j += 1
-                        i += 1
-                    else:
-                        del nums1[i+1:]
-                        nums1.extend(nums2[j:])
-                        j = n
-            return nums1
-      
+            nums1[:] = nums2
+        i, j, k = m - 1, n - 1, m + n - 1
+        while i >= 0 and j >= 0:
+            if nums1[i] > nums2[j]:
+                nums1[k] = nums1[i]
+                i -= 1
+            else:
+                nums1[k] = nums2[j]
+                j -= 1
+            k -= 1
+        if i < 0 and j >= 0:
+            nums1[:j + 1] = nums2[:j + 1]
+    #活用三根指针
+    #以及，从后向前搜索
