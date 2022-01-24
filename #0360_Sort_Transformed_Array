@@ -60,3 +60,51 @@ class Solution(object):
                     left += 1
                     quadratic_left = (nums[left] * a + b) * nums[left] + c
         return List
+---------
+#可以跳过判断同在对称轴一侧，直接暴力算
+class Solution(object):
+    def sortTransformedArray(self, nums, a, b, c):
+        """
+        :type nums: List[int]
+        :type a: int
+        :type b: int
+        :type c: int
+        :rtype: List[int]
+        """
+        List = []
+        if a == 0:
+            if b == 0:
+                return [c]*len(nums)
+            elif b > 0:
+                for j in range(len(nums)):
+                    List.append(b * nums[j] + c)
+            else:
+                for j in range(len(nums)):
+                    List.insert(0, b * nums[j] + c)
+            return List
+        
+        left = 0
+        right = len(nums) - 1
+        quadratic_left = (nums[left] * a + b) * nums[left] + c
+        quadratic_right = (nums[right] * a + b) * nums[right] + c
+        if a > 0:
+            while left <= right:
+                if quadratic_left <= quadratic_right:
+                    List.insert(0,quadratic_right)
+                    right -= 1
+                    quadratic_right = (nums[right] * a + b) * nums[right] + c
+                else:
+                    List.insert(0,quadratic_left)
+                    left += 1
+                    quadratic_left = (nums[left] * a + b) * nums[left] + c
+        else:
+            while left <= right:
+                if quadratic_left >= quadratic_right:
+                    List.append(quadratic_right)
+                    right -= 1
+                    quadratic_right = (nums[right] * a + b) * nums[right] + c
+                else:
+                    List.append(quadratic_left)
+                    left += 1
+                    quadratic_left = (nums[left] * a + b) * nums[left] + c
+        return List
