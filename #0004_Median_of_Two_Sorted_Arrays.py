@@ -39,6 +39,6 @@ class Solution(object):
             del nums1[-1]
         return self.findMedianSortedArrays(nums1,nums2)
     #传说是hard？
-        return self.findMedianSortedArrays(nums1,nums2)d额
-        return self.findMedianSortedArrays(nums1,nums2)h爱人
+        return self.findMedianSortedArrays(nums1,nums2)
+        return self.findMedianSortedArrays(nums1,nums2)
         return self.findMedianSortedArrays(nums1,nums2)
