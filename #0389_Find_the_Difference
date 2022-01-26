@@ -1,0 +1,21 @@
+class Solution(object):
+    def findTheDifference(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: str
+        """
+        #笨办法：根据s造字典，value记为出现次数。再根据t修正字典，出现即抵消，判断总次数-1或未出现，由于只有一个，直接返回。
+        Dict = {}
+        for i in range(len(s)):
+            if s[i] not in Dict:
+                Dict[s[i]] = 1
+            else:
+                Dict[s[i]] += 1
+        for j in range(len(t)):
+            if t[j] in Dict:
+                Dict[t[j]] -= 1
+                if Dict[t[j]] == -1:
+                    return t[j]
+            else:
+                return t[j]
