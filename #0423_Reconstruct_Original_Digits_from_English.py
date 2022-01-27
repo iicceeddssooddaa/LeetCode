@@ -6,10 +6,7 @@ class Solution(object):
         """
         #0:z, 2:w, 8:g, 6:x, 7:s, 5:v, 4:f, 3:h, 1:o, 9:i
         counter = collections.Counter(s)
-        count_0 = counter['z']
-        count_2 = counter['w']
-        count_6 = counter['x']
-        count_8 = counter['g']
+        count_0, count_2, count_6, count_8 = counter['z'], counter['w'], counter['x'], counter['g']
         counter['h'] -= count_8
         count_3 = counter['h']
         counter['s'] -= count_6
