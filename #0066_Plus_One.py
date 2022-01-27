@@ -4,18 +4,16 @@ class Solution(object):
         :type digits: List[int]
         :rtype: List[int]
         """
-        digit_set = set(digits)
-        #分是否长度增加
-        #长度增加当且仅当全是9
-        if digit_set == {9}:
-            _list = [0]*len(digits)
-            _list.insert(0,1)
-            return _list
-        #倒序指针while循环
+        #倒序循环，如遇9，翻成0
+        #留下新的i位待进位
         i = len(digits) - 1
         while i > 0 and digits[i] == 9:
             digits[i] = 0
             i -= 1
-        digits[i] += 1
+        #判断此时首位（若后续都是9）是否同样是9，如是进位，如否加一
+        if digits[i] == 9:
+            digits[i] = 0
+            digits.insert(0,1)
+        else:
+            digits[i] += 1
         return digits
-      #有点慢，在考虑要不直接倒序循环，最后判断要不要增加长度
