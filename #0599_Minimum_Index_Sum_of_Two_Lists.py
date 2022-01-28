@@ -12,8 +12,9 @@ class Solution(object):
         for pos, item in enumerate(list2):
             if item in _dict:
                 pos_sum = _dict[item]*(-1) + pos
-                index[pos_sum] = item
+                if pos_sum not in index:
+                    index[pos_sum] = [item]
+                else:
+                    index[pos_sum].append(item)
         min_sum = min(key for key in index)
-        return [index[min_sum]]
-        
-        
+        return index[min_sum]
