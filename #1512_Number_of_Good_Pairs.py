@@ -7,10 +7,10 @@ class Solution(object):
         pos_dict = {}
         for pos,num in enumerate(nums):
             if num not in pos_dict:
-                pos_dict[num] = [pos]
+                pos_dict[num] = 1
             else:
-                pos_dict[num].append(pos)
+                pos_dict[num] += 1
         count = 0
-        for key, _list in pos_dict.items():
-            count += len(_list) * (len(_list) - 1) // 2
+        for key, value in pos_dict.items():
+            count += value * (value - 1) // 2
         return count
