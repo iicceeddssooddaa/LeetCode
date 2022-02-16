@@ -34,3 +34,23 @@ class Solution(object):
             if len(cache) > 2: return False
             if len(cache) == 2: diff += 1
         return (diff == 2) or (diff == 0 and exist) 
+----------------------
+# 想复杂了。用check swap改。多一步判断如果不对换是否有重复字母即可（重复说明可在内部交换）
+class Solution(object):
+    def buddyStrings(self, s, goal):
+        """
+        :type s: str
+        :type goal: str
+        :rtype: bool
+        """
+        # 预判断长度。对不同位记录分别记录两个字符。检查字典长度为0或2，为2追加判断字符对调。
+        n, _dict, counter = len(s), {}, collections.Counter(s)
+        if len(goal) != n: return False
+        for i in range(n): 
+            if s[i] != goal[i]: _dict[i] = [s[i], goal[i]]
+        if len(_dict) == 0 and len(counter) < n: return True
+        elif len(_dict) !=2: return False
+        else:
+            cache = []
+            for key, value in _dict.items(): cache.append(value)
+            return cache[0][0] == cache[1][1] and cache[0][1] == cache[1][0]
