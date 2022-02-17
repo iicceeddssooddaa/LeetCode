@@ -25,3 +25,25 @@ class Solution(object):
         num2 = (((1 + sqrt(5))/2)**(k + 2) - ((1 - sqrt(5))/2)**(k + 2))/sqrt(5)
         if n * 2/3 >= 2**k: return int(num1)
         else: return int(num2 + self.findIntegers(n - 2**k))
+--------------
+# 非递归版本写了一个，整体比较，还是DP最好。且由于反复递归，斐波那契数直接算快。看第二组代码。
+class Solution(object):
+    def findIntegers(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        n <<= 1
+        x, _list, result = "{0:b}".format(n), [], 0
+        k, fib, notadd = len(x) - 2, [0,1], True
+        for i in range(k + 1):
+            if x[i:i + 2] == "11": 
+                _list.append(k + 3 - i)
+                notadd = False
+                break
+            elif x[i] == "1": _list.append(k + 2 - i)
+        result += int(notadd)
+        for i in range(2, k + 4): 
+            fib[i%2] = fib[(i - 1)%2] + fib[(i - 2)%2]
+            if i in _list: result += fib[i%2]
+        return result
