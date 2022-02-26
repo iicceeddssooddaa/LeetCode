@@ -55,3 +55,15 @@ Dict = {}
                 return ([Dict.get(i),index])
             newtarget = target - i
             Dict[newtarget] = index
+-------
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        _dict = {}
+        for index, value in enumerate(nums):
+            if value in _dict: return [index, _dict[value]]
+            else: _dict[target - value] = index
