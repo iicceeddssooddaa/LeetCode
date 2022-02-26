@@ -19,3 +19,15 @@ class Solution(object):
                 Dict[nums2[j]] -= 1
                 List.append(nums2[j])
         return List
+---------------
+class Solution(object):
+    def intersect(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        count1, count2, sto = collections.Counter(nums1), collections.Counter(nums2), []
+        for key, value in count1.items():
+            if key in count2: sto.extend([key] * min(count1[key], count2[key]))
+        return sto
