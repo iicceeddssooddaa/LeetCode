@@ -38,7 +38,7 @@ class MRUQueue(object):
         """
         key, cache = self.dict.items()[k - 1]
         self.dict.pop(key)
-        self.dict[key] = 1
+        self.dict[key] = cache
         return key
     
 
