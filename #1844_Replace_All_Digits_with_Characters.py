@@ -5,8 +5,8 @@ class Solution(object):
         :rtype: str
         """
         cache = []
-        for i in range(0,len(s),2):
-            cache.append(s[i])
-            if i + 1 < len(s): cache.append(chr(ord(s[i]) + int(s[i + 1])))
+        for i in range(0,len(s)-1,2):
+            cache.extend([s[i], chr(ord(s[i]) + int(s[i + 1]))])
+        if len(s)%2 == 1: cache.append(s[-1])
         string = "".join(cache)
         return string
