@@ -10,15 +10,15 @@ class Solution(object):
         :rtype: ListNode
         """
         if not head: return None
-        temp, sto = head, [head.val]
+        temp, sto = head, [head]
         while temp.next:
             temp = temp.next
-            sto.append(temp.val)
+            sto.append(temp)
         sto.reverse()
-        newhead = ListNode(sto[0])
+        newhead = sto[0]
         temp = newhead
+        sto[-1].next = None
         for i in range(1, len(sto)):
-            cache = ListNode(sto[i])
-            temp.next = cache
+            temp.next = sto[i]
             temp = temp.next
         return newhead
