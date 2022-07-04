@@ -14,7 +14,7 @@ class Solution(object):
             return result
         
         _dict, gp_ct, gp_sz = {}, 0, 0
-        for i in range(n + 1):
+        for i in range(1, n + 1):
             cache = sumOfDigits(i)
             if cache not in _dict: _dict[cache] = 1
             else: _dict[cache] += 1
