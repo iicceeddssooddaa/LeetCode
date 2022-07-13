@@ -35,3 +35,15 @@ class Solution(object):
                 if arr3[i] == arr2[left]: log[1], in1 = left + 1, True
             if in1: result.append(arr3[i])
         return result
+-----------------
+        arr1.extend(arr2)
+        arr1.extend(arr3)
+        _dict, result = collections.Counter(arr1), []
+        for key, value in _dict.items(): 
+            if value == 3: result.append(key)
+        return result
+---------------
+        set1, set2, set3 = set(arr1), set(arr2), set(arr3)
+        myset = list(set1.intersection(set2).intersection(set3))
+        myset.sort()
+        return myset
