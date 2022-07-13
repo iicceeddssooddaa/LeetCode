@@ -47,3 +47,17 @@ class Solution(object):
         myset = list(set1.intersection(set2).intersection(set3))
         myset.sort()
         return myset
+----------------
+        i, j, k, result = 0, 0, 0, []
+        while i < len(arr1) and j < len(arr2) and k < len(arr3):
+            cache = max(arr1[i], arr2[j], arr3[k])
+            if arr1[i] == arr2[j] == arr3[k]: 
+                result.append(arr1[i])
+                i += 1
+                j += 1
+                k += 1
+            else:
+                if arr1[i] < cache: i += 1
+                if arr2[j] < cache: j += 1
+                if arr3[k] < cache: k += 1
+        return result
